@@ -1,5 +1,5 @@
 // ─── CONFIG ──────────────────────────────────────────────────────────────
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwB4Wl1yBQHBk07rFdU4NyxrPV8XZY_P0GT-Uitgi3nnjdAKiXaw1KoNN_ts1uiD45S/exec';
 const POLL_INTERVAL   = 30000; // 30 seconds (safe for free quota with 4 panels)
 
 // ─── DATA ────────────────────────────────────────────────────────────────
@@ -21,7 +21,7 @@ let adminPositionOptions = [
 function loadRecords() {
   setConnectionStatus('loading');
 
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwB4Wl1yBQHBk07rFdU4NyxrPV8XZY_P0GT-Uitgi3nnjdAKiXaw1KoNN_ts1uiD45S/exec') {
     records = JSON.parse(localStorage.getItem('sheetsCache') || '[]');
     records.forEach(ensureAdminFields);
     renderTable();
@@ -61,7 +61,7 @@ function ensureAdminFields(r) {
 
 // ─── PUSH EDITS TO SHEETS ────────────────────────────────────────────────
 function pushRecordToSheets(record) {
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwB4Wl1yBQHBk07rFdU4NyxrPV8XZY_P0GT-Uitgi3nnjdAKiXaw1KoNN_ts1uiD45S/exec') {
     const cache = JSON.parse(localStorage.getItem('sheetsCache') || '[]');
     const idx = cache.findIndex(r => r.ref === record.ref);
     if (idx > -1) cache[idx] = record; else cache.push(record);
@@ -76,7 +76,7 @@ function pushRecordToSheets(record) {
 }
 
 function deleteRecordFromSheets(ref) {
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwB4Wl1yBQHBk07rFdU4NyxrPV8XZY_P0GT-Uitgi3nnjdAKiXaw1KoNN_ts1uiD45S/exec') {
     const cache = JSON.parse(localStorage.getItem('sheetsCache') || '[]');
     localStorage.setItem('sheetsCache', JSON.stringify(cache.filter(r => r.ref !== ref)));
     return Promise.resolve();
