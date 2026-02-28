@@ -1,6 +1,6 @@
 // ─── CONFIG ──────────────────────────────────────────────────────────────
 // Paste your deployed Apps Script Web App URL here after setup
-const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwB4Wl1yBQHBk07rFdU4NyxrPV8XZY_P0GT-Uitgi3nnjdAKiXaw1KoNN_ts1uiD45S/exec';
 
 // ─── STATE ───────────────────────────────────────────────────────────────
 const state = {
@@ -167,7 +167,7 @@ function finalizeSubmit(record) {
   const btn = document.querySelector('.btn-submit');
   if (btn) { btn.disabled = true; btn.textContent = 'Submitting…'; }
 
-  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwB4Wl1yBQHBk07rFdU4NyxrPV8XZY_P0GT-Uitgi3nnjdAKiXaw1KoNN_ts1uiD45S/exec') {
     console.warn('Apps Script URL not configured. Saving to localStorage only.');
     saveLocalCache(record);
     showSuccess(refNum);
